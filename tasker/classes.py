@@ -27,7 +27,7 @@ class TaskManager:
         print("Task created")
 
     def list(self):
-        tasks = [Task(*task) for task in self.cursor.execute("SELECT * FROM tasks").fetchall()]
+        tasks = (Task(*task) for task in self.cursor.execute("SELECT * FROM tasks").fetchall())
         for task in tasks:
             print(task)
 
