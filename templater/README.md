@@ -1,7 +1,7 @@
-#Templater
+# Templater
 A CLI tool to make project templates directories and files with the given project name by the template file
 
-##Usage
+## Usage
 * Clone the repo and add it's directory to the `PATH`
 * Open templates folder and create a text file with `*.tmpl` extension
 * Describe there what directories and files do you want to create
@@ -9,7 +9,7 @@ A CLI tool to make project templates directories and files with the given projec
 * Then run `templater -n <projectName> -t <templateName>`
 * Example `templater -n testproject -t web`
 
-###How to describe a template?
+### How to describe a template?
 Template is a set of rows with the directories to the file or empty folders.
 Here's a simple web template:
 
