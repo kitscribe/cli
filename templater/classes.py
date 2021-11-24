@@ -4,10 +4,16 @@ import os
 class Templater:
     def __init__(self, name, template_file):
         self.root = os.path.join(os.curdir, name)
-        self.template_file = template_file
+        self.templates_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
+        self.template_file = os.path.join(self.templates_dir, template_file + ".tmpl")
+
+    def make(self):
         os.mkdir(self.root)
 
-        with open(template_file, 'r') as f_handler:
+        if not os.path.exists(os.path.join(self.templates_dir, self.template_file)):
+            raise ValueError("No template exists with the given name")
+
+        with open(self.template_file, 'r') as f_handler:
             for line in f_handler:
                 # get the routes and make it a list of directories
                 routes = list(filter(lambda x: x != '', line.strip().split("/")))
